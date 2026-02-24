@@ -15,5 +15,20 @@ export default function QueryProcessor(query: string): string {
     return "emmawong";
   }
 
+  if (query.toLowerCase().includes("square and a cube")) {
+    const numbers = query.match(/\d+/g);
+    if (!numbers) return "";
+  
+    for (let numStr of numbers) {
+      const n = parseInt(numStr);
+  
+      const sqrt = Math.sqrt(n);
+      const cbrt = Math.cbrt(n);
+  
+      if (Number.isInteger(sqrt) && Number.isInteger(cbrt)) {
+        return n.toString();
+      }
+    }
+  }
   return "";
 }
