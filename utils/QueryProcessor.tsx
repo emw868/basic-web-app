@@ -16,11 +16,10 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("multiplied by")) {
-    const numbers = query.match(/\d+/g);
-    if (!numbers || numbers.length < 2) return "";
+    const nums = query.match(/\d+/g);
+    if (!nums || nums.length < 2) return "";
   
-    const result = parseInt(numbers[0]) * parseInt(numbers[1]);
-    return result.toString();
+    return (parseInt(nums[0]) * parseInt(nums[1])).toString();
   }
   return "";
 }
